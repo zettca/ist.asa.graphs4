@@ -1,10 +1,12 @@
+.PHONY: test
+
 compile:
 	g++ main.cpp -o graphs4 -pedantic -Wall
 
 run: compile
 	./graphs4
 
-test:
+test: compile
 	./run_tests.sh
 
 clean:

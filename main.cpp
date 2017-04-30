@@ -4,10 +4,8 @@
 
 class City {
 public:
-    int id;
-    bool built = false;
-
-    City(int i) : id(i) {}
+    bool reachable = false;
+    City() {}
 };
 
 class Road {
@@ -17,12 +15,11 @@ public:
     bool virt = false;
 
     void build() {
-      city1->built = true;
-      city2->built = true;
+      city1->reachable = true;
+      city2->reachable = true;
     }
 
     Road(City *c1, City *c2, int c) : Road(c1, c2, c, false) {};
-
     Road(City *c1, City *c2, int c, bool v) : city1(c1), city2(c2), cost(c), virt(v) {};
 };
 
@@ -38,19 +35,17 @@ int main(int argc, char const *argv[]) {
 
   cin >> N;
   for (int i = 0; i <= N; i++) {
-    cities.push_back(new City(i));
+    cities.push_back(new City());
   }
   City *sky = cities.at(0);
 
-  cin >> A;
-  //cout << "Reading " << A << " Airports" << endl;
+  cin >> A; //cout << "Reading " << A << " Airports" << endl;
   for (int i = 0; i < A; i++) {
     cin >> a >> c;
     roads.push_back(new Road(cities.at(a), sky, c, true));
   }
 
-  cin >> E;
-  //cout << "Reading " << E << " Streets" << endl;
+  cin >> E; //cout << "Reading " << E << " Streets" << endl;
   for (int i = 0; i < E; i++) {
     cin >> a >> b >> c;
     roads.push_back(new Road(cities.at(a), cities.at(b), c));
@@ -64,14 +59,15 @@ int main(int argc, char const *argv[]) {
 
   vector<Road *> mst;
   for (auto road : roads) { // fills in MST (or forest)
-    if (!(road->city1->built && road->city2->built)) {
+    if (!(road->city1->reachable && road->city2->reachable)) {
       road->build();
       mst.push_back(road);
     }
   }
 
+  sky->reachable = true; // :)
   for (auto city : cities) {
-    if (!city->built){
+    if (!city->reachable){
       cout << "Insuficiente" << endl;
       return 1;
     }

@@ -1,3 +1,5 @@
+#!/bin/bash
+
 for (( i = 1; i <= 5; i++ )); do
 	./graphs4 < test/in/$i > test/oute/$i
 	colordiff test/oute/$i test/out/$i > test/diff/$i
