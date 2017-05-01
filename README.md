@@ -2,7 +2,7 @@
 A C++ implementation for a Minimum Spamming Tree (MST) problem using [Kruskal's Algorithm](https://en.wikipedia.org/wiki/Kruskal%27s_algorithm).
 
 ### Project Infos
-* **Date:** Semester 2 - 2016/2017 (Abril 2017)
+* **Date:** Semester 2 - 2016/2017 (April 2017)
 * **Topic:** Tetromino optimal positioning on a Tetris grid
 * **Course:** Análise e Síntese de Algoritmos (ASA) | Analysis and Synthesis of Algorithms
 * **Course Link:** https://fenix.tecnico.ulisboa.pt/disciplinas/ASA10111326/2016-2017/2-semestre

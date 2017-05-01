@@ -10,4 +10,4 @@ test: compile
 	./run_tests.sh
 
 clean:
-	rm graphs4 test/diff/* test/oute/*
+	rm graphs4 test/*.myout test/*.diff
